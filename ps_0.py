@@ -10,7 +10,7 @@ import numpy
 import pylab
 
 print("Enter number x:")
-user_input_x = input("")
+user_input_x = float(input(""))
 print("Enter number x:",  user_input_x)
 
 
@@ -21,9 +21,9 @@ print("Enter number y:",  user_input_y)
 
 
 # X**y = 8
-a = float(user_input_x)
+#a = float(user_input_x)
 b = float(user_input_y)
-c= a**b
+c= user_input_x **b
 print("X**y =", c)
 
 
