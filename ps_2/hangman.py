@@ -98,9 +98,12 @@ def get_available_letters(letters_guessed):
       yet been guessed.
     '''
     # FILL IN YOUR CODE HERE AND DELETE "pass"
-    pass
-    
-    
+    a = "abcdefghijklmnopqrstuvwxyz"
+    for char in letters_guessed:
+        a = a.replace(char,"")
+    return a
+        
+print(get_available_letters(letters_guessed))
 
 def hangman(secret_word):
     '''
