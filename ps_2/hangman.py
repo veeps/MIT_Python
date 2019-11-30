@@ -61,10 +61,18 @@ def is_word_guessed(secret_word, letters_guessed):
       False otherwise
     '''
     # FILL IN YOUR CODE HERE AND DELETE "pass"
-    pass
+    if set(letters_guessed) == set(secret_word):
+        return True
+    else:
+        return False
 
+secret_word = 'apple'
+letters_guessed = ['e', 'i', 'k', 'p', 'r', 's']    
+print(is_word_guessed(secret_word, letters_guessed))
+                
+            
 
-
+#print(is_word_guessed(secret_word, letters_guessed))
 def get_guessed_word(secret_word, letters_guessed):
     '''
     secret_word: string, the word the user is guessing
@@ -73,8 +81,14 @@ def get_guessed_word(secret_word, letters_guessed):
       which letters in secret_word have been guessed so far.
     '''
     # FILL IN YOUR CODE HERE AND DELETE "pass"
-    pass
-
+    s=""
+    for char in secret_word:
+        if char in letters_guessed:
+            s += char
+        else:
+            s += "_"
+    return s
+print(get_guessed_word(secret_word, letters_guessed))
 
 
 def get_available_letters(letters_guessed):
