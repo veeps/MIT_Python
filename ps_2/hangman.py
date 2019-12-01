@@ -66,9 +66,9 @@ def is_word_guessed(secret_word, letters_guessed):
     else:
         return False
 
-secret_word = 'apple'
-letters_guessed = ['e', 'i', 'k', 'p', 'r', 's']    
-print(is_word_guessed(secret_word, letters_guessed))
+#secret_word = 'apple'
+#letters_guessed = ['e', 'i', 'k', 'p', 'r', 's']    
+#print(is_word_guessed(secret_word, letters_guessed))
                 
             
 
@@ -86,9 +86,9 @@ def get_guessed_word(secret_word, letters_guessed):
         if char in letters_guessed:
             s += char
         else:
-            s += "_"
+            s += "_ "
     return s
-print(get_guessed_word(secret_word, letters_guessed))
+#print(get_guessed_word(secret_word, letters_guessed))
 
 
 def get_available_letters(letters_guessed):
@@ -103,7 +103,7 @@ def get_available_letters(letters_guessed):
         a = a.replace(char,"")
     return a
         
-print(get_available_letters(letters_guessed))
+#print(get_available_letters(letters_guessed))
 
 def hangman(secret_word):
     '''
@@ -131,7 +131,40 @@ def hangman(secret_word):
     Follows the other limitations detailed in the problem write-up.
     '''
     # FILL IN YOUR CODE HERE AND DELETE "pass"
-    pass
+num_guesses = 1
+secret_word = choose_word(wordlist)
+letters_guessed=""
+num_warnings = 3
+print("Welcome to the game Hangman!")
+print("I am thinking of a word that is", len(secret_word), "letters long.")
+print("You have 6 guesses to win the game!")
+letter_input = input("Please guess a letter:")
+
+
+while num_guesses < 6:
+    #if str.isalpha(letter_input):
+    letters_guessed += letter_input
+    print("Available letters left:" , get_available_letters(letters_guessed))
+    print("You have", 6-num_guesses, "guesses left!")
+    if letter_input in secret_word:
+        print("Good guess:", get_guessed_word(secret_word, letters_guessed))
+    else:
+        print("Oops! That letter is not in my word: " , get_guessed_word(secret_word, letters_guessed))
+    num_guesses += 1
+    print("------------")
+    letter_input = input("Please guess a letter:")
+    if num_guesses == 6:
+        print("You did not guess the word:", secret_word, " \n Game over!")
+    #else:
+        #num_warnings -= 1
+        #print("Oops, please enter a letter. You have", num_warnings, " warnings left.")  
+        #if num_warnings <= 0:
+           # num_guesses -= 1
+           # print("You have no more warnings left, so you lose one guess!")          
+
+
+    
+
 
 
 
